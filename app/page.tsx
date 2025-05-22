@@ -102,9 +102,6 @@ export default function Home() {
 }
 
 function makeMultiViewLink(members: MemberType[]) {
-	// get stream code from member's chzzk url
-	// make multi view link
-	// return multi view link
 	const streamCodes = members.map((member) => {
 		const response = member.chzzkUrl.replace("https://chzzk.naver.com/", "");
 		return response;

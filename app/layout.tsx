@@ -1,14 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Noto_Sans_KR } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-	variable: "--font-geist-sans",
-	subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-	variable: "--font-geist-mono",
+const notoSansKR = Noto_Sans_KR({
+	variable: "--font-noto-sans-kr",
 	subsets: ["latin"],
 });
 
@@ -25,7 +20,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
+				className={`${notoSansKR.variable} antialiased flex flex-col min-h-screen`}
 			>
 				<header className="flex items-center justify-between h-16 border-b border-gray-200">
 					<h1 className="text-4xl font-extrabold container mx-auto">
