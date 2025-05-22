@@ -1,4 +1,14 @@
-export const members = [
+export type MemberType = {
+	name: string;
+	image: string;
+	xUrl: string;
+	chzzkUrl: string;
+	youtubeUrl: string;
+	group: string;
+	primaryColor: string;
+};
+
+export const members: MemberType[] = [
 	{
 		name: "반님",
 		image: "/images/반님.png",
@@ -6,7 +16,7 @@ export const members = [
 		chzzkUrl: "https://chzzk.naver.com/3a2d2f4e9132d822423f6aa879e598c5",
 		youtubeUrl: "https://www.youtube.com/@%EB%B0%98%EB%8B%98",
 		group: "Stardays",
-		primaryColor: "#FFD700",
+		primaryColor: "#3b3a4c",
 	},
 	{
 		name: "쿠레나이 나츠키",
@@ -15,6 +25,7 @@ export const members = [
 		chzzkUrl: "https://chzzk.naver.com/0a2020b09b8cc7f2285b7ae5de2ce4d3",
 		youtubeUrl: "https://www.youtube.com/@%EB%82%98%EC%B8%A0%ED%82%A4",
 		group: "Stardays",
+		primaryColor: "#da5b64",
 	},
 	{
 		name: "테리눈나",
@@ -23,6 +34,7 @@ export const members = [
 		chzzkUrl: "https://chzzk.naver.com/0a2020b09b8cc7f2285b7ae5de2ce4d3",
 		youtubeUrl: "https://www.youtube.com/@%ED%85%8C%EB%A6%AC%EB%88%88%EB%82%98",
 		group: "Stardays",
+		primaryColor: "#a4ccf0",
 	},
 	{
 		name: "빙하유",
@@ -31,6 +43,7 @@ export const members = [
 		chzzkUrl: "https://chzzk.naver.com/a048127622edd6c3ee8e477471a1d823",
 		youtubeUrl: "https://www.youtube.com/@binghayu",
 		group: "Luvdia",
+		primaryColor: "#ff86bb",
 	},
 	{
 		name: "양메이",
@@ -39,6 +52,7 @@ export const members = [
 		chzzkUrl: "https://chzzk.naver.com/f1869f490ddd660c420b2f57c649e6bb",
 		youtubeUrl: "https://www.youtube.com/@%EC%96%91%EB%A9%94%EC%9D%B4",
 		group: "Luvdia",
+		primaryColor: "#ebf9a4",
 	},
 	{
 		name: "유리리",
@@ -47,6 +61,7 @@ export const members = [
 		chzzkUrl: "https://chzzk.naver.com/29a1ed5c0829fa620fab900dba7e011b",
 		youtubeUrl: "https://www.youtube.com/@U-Lili22",
 		group: "Luvdia",
+		primaryColor: "#b5cff4",
 	},
 	{
 		name: "온하루",
@@ -55,6 +70,7 @@ export const members = [
 		chzzkUrl: "https://chzzk.naver.com/0f61ae00c2aef2b789dc009e51cbcc5a",
 		youtubeUrl: "https://www.youtube.com/@otw_onharu",
 		group: "Hi-Blueming",
+		primaryColor: "#e0c1cf",
 	},
 	{
 		name: "김아테",
@@ -63,6 +79,7 @@ export const members = [
 		chzzkUrl: "https://chzzk.naver.com/f42e97f59c3177b8686dccfbf90792dd",
 		youtubeUrl: "https://www.youtube.com/@otw_Ate",
 		group: "Hi-Blueming",
+		primaryColor: "#f9f0c7",
 	},
 	{
 		name: "하네",
@@ -71,6 +88,7 @@ export const members = [
 		chzzkUrl: "https://chzzk.naver.com/7b9c6553913c755812ef2cd9fbe1dc5c",
 		youtubeUrl: "https://www.youtube.com/@otw_hane",
 		group: "Hi-Blueming",
+		primaryColor: "#6da7c5",
 	},
 	{
 		name: "오토노 소리",
@@ -79,5 +97,6 @@ export const members = [
 		chzzkUrl: "https://chzzk.naver.com/2e5c0e7ce8321194127e4d79c83c36d4",
 		youtubeUrl: "https://www.youtube.com/@otw_Sori",
 		group: "Hi-Blueming",
+		primaryColor: "#859753",
 	},
 ];
