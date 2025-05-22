@@ -1,28 +1,64 @@
 "use client";
 
 import { Toggle } from "@/components/ui/toggle";
+import { useState } from "react";
+import { Check } from "lucide-react";
+import { members } from "@/lib/constants";
 
 export default function Home() {
+	const [selectedMembers, setSelectedMembers] = useState<string[]>([]);
+	const MemberToggle = ({ name }: { name: string }) => {
+		return (
+			<Toggle
+				className="cursor-pointer"
+				variant={"outline"}
+				onClick={() => {
+					if (selectedMembers.includes(name)) {
+						setSelectedMembers(
+							selectedMembers.filter((member) => member !== name),
+						);
+					} else {
+						setSelectedMembers([...selectedMembers, name]);
+					}
+				}}
+			>
+				{selectedMembers.includes(name) && <Check className="w-4 h-4" />}
+				{name}
+			</Toggle>
+		);
+	};
+
 	return (
 		<div className="flex flex-col gap-4 my-2">
 			<h2 className="text-xl font-bold">Stardays</h2>
-			<div>
-				<Toggle className="cursor-pointer">반님</Toggle>
-				<Toggle className="cursor-pointer">쿠레나이 나츠키</Toggle>
-				<Toggle className="cursor-pointer">테리눈나</Toggle>
+			<div className="flex gap-2">
+				{members
+					.filter((member) => member.group === "Stardays")
+					.map((member) => (
+						<MemberToggle key={member.name} name={member.name} />
+					))}
 			</div>
 			<h2 className="text-xl font-bold">Luvdia</h2>
-			<div>
-				<Toggle className="cursor-pointer">빙하유</Toggle>
-				<Toggle className="cursor-pointer">양메이</Toggle>
-				<Toggle className="cursor-pointer">유리리</Toggle>
+			<div className="flex gap-2">
+				{members
+					.filter((member) => member.group === "Luvdia")
+					.map((member) => (
+						<MemberToggle key={member.name} name={member.name} />
+					))}
 			</div>
 			<h2 className="text-xl font-bold">Hi-Blueming</h2>
-			<div>
-				<Toggle className="cursor-pointer">온하루</Toggle>
-				<Toggle className="cursor-pointer">김아테</Toggle>
-				<Toggle className="cursor-pointer">하네</Toggle>
-				<Toggle className="cursor-pointer">오토노 소리</Toggle>
+			<div className="flex gap-2">
+				{members
+					.filter((member) => member.group === "Hi-Blueming")
+					.map((member) => (
+						<MemberToggle key={member.name} name={member.name} />
+					))}
+			</div>
+
+			<div className="flex gap-2">
+				{selectedMembers.map((member) => (
+					<div key={member}>{member}</div>
+				))}
 			</div>
 		</div>
 	);
