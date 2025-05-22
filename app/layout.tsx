@@ -5,7 +5,6 @@ import "./globals.css";
 const notoSansKR = Noto_Sans_KR({
 	variable: "--font-noto-sans-kr",
 	subsets: ["latin"],
-	weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
