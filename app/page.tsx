@@ -45,6 +45,10 @@ export default function Home() {
 
 	return (
 		<div className="flex flex-col gap-2 my-2">
+			<p className="text-sm text-gray-500">
+				멤버를 선택한 후, &quot;멀티뷰 생성&quot; 버튼을 클릭하면 mul.live
+				링크로 멀티뷰 링크가 생성됩니다.
+			</p>
 			<MemberList
 				title="Stardays"
 				members={members.filter((member) => member.group === "Stardays")}

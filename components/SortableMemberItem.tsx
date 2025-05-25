@@ -1,6 +1,7 @@
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import type { MemberType } from "@/lib/constants";
+import { getContrastingColor } from "@/lib/utils";
 
 interface SortableMemberItemProps {
 	member: MemberType;
@@ -14,6 +15,7 @@ export function SortableMemberItem({ member }: SortableMemberItemProps) {
 		transform: transform ? CSS.Translate.toString(transform) : undefined,
 		transition,
 		backgroundColor: member.primaryColor,
+		color: getContrastingColor(member.primaryColor),
 	};
 
 	return (

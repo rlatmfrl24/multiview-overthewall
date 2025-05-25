@@ -42,6 +42,9 @@ export function SelectedMembersList({
 					Reset
 				</Button>
 			</div>
+			<p className="text-sm text-gray-500">
+				멤버의 이름을 Drag & Drop 하여 순서를 바꿀 수 있습니다.
+			</p>
 			<DndContext sensors={sensors} onDragOver={onDragOver}>
 				<SortableContext
 					items={selectedMembers}

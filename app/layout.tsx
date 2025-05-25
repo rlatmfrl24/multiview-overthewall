@@ -29,7 +29,12 @@ export default function RootLayout({
 				</header>
 				<main className="flex-1 container mx-auto">{children}</main>
 				<footer className="flex items-center justify-center bg-gray-100 h-12">
-					<p className="text-sm text-gray-500">397love@gmail.com</p>
+					<p className="text-sm text-gray-500">
+						버그 문의:{" "}
+						<a href="mailto:397love@gmail.com" className="underline">
+							397love@gmail.com
+						</a>
+					</p>
 				</footer>
 			</body>
 		</html>
