@@ -1,12 +1,36 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Check } from "lucide-react";
 import { members, type MemberType } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
+import {
+	DndContext,
+	type DragOverEvent,
+	KeyboardSensor,
+	PointerSensor,
+	useSensor,
+	useSensors,
+} from "@dnd-kit/core";
+import {
+	arrayMove,
+	SortableContext,
+	useSortable,
+	verticalListSortingStrategy,
+} from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
 
 export default function Home() {
 	const [selectedMembers, setSelectedMembers] = useState<string[]>([]);
+	const sensors = useSensors(
+		useSensor(PointerSensor),
+		useSensor(KeyboardSensor),
+	);
+
+	useEffect(() => {
+		console.log(selectedMembers);
+	}, [selectedMembers]);
+
 	const MemberToggle = ({ member }: { member: MemberType }) => {
 		return (
 			<Button
@@ -33,6 +57,19 @@ export default function Home() {
 			</Button>
 		);
 	};
+
+	function handleDragOver(event: DragOverEvent) {
+		const { active, over } = event;
+
+		if (active.id !== over?.id) {
+			setSelectedMembers((items) => {
+				const oldIndex = items.indexOf(active.id as string);
+				const newIndex = items.indexOf(over?.id as string);
+
+				return arrayMove(items, oldIndex, newIndex);
+			});
+		}
+	}
 
 	return (
 		<div className="flex flex-col gap-2 my-2">
@@ -61,24 +98,36 @@ export default function Home() {
 					))}
 			</div>
 			<div className="flex flex-col gap-2 mt-4">
-				<h2 className="text-xl font-bold">선택 리스트</h2>
-				{selectedMembers.length > 0 && (
-					<div className="flex gap-2 flex-wrap border p-2 rounded-md">
-						{selectedMembers.map((member) => (
-							<div
-								key={member}
-								className="px-2 py-1 rounded-md"
-								style={{
-									backgroundColor: members.find((m) => m.name === member)
-										?.primaryColor,
-									fontWeight: "bold",
-								}}
-							>
-								{member}
+				<div className="flex gap-2 items-center">
+					<h2 className="text-xl font-bold">선택 리스트</h2>
+					<Button
+						size={"sm"}
+						variant={"outline"}
+						onClick={() => setSelectedMembers([])}
+					>
+						Reset
+					</Button>
+				</div>
+				<DndContext sensors={sensors} onDragOver={handleDragOver}>
+					<SortableContext
+						items={selectedMembers}
+						strategy={verticalListSortingStrategy}
+					>
+						{selectedMembers.length > 0 && (
+							<div className="flex gap-2 flex-wrap border p-2 rounded-md">
+								{selectedMembers.map((member) => (
+									<SortableMemberItem
+										key={member}
+										member={
+											members.find((m) => m.name === member) as MemberType
+										}
+									/>
+								))}
 							</div>
-						))}
-					</div>
-				)}
+						)}
+					</SortableContext>
+				</DndContext>
+
 				<Button
 					size={"lg"}
 					className="text-xl font-bold"
@@ -109,3 +158,26 @@ function makeMultiViewLink(members: MemberType[]) {
 
 	return `https://mul.live/${streamCodes.join("/")}`;
 }
+
+const SortableMemberItem = ({ member }: { member: MemberType }) => {
+	const { attributes, listeners, setNodeRef, transform, transition } =
+		useSortable({ id: member.name });
+
+	const style = {
+		transform: transform ? CSS.Translate.toString(transform) : undefined,
+		transition,
+		backgroundColor: member.primaryColor,
+	};
+
+	return (
+		<div
+			className="px-2 py-1 rounded-md font-bold cursor-move"
+			ref={setNodeRef}
+			{...attributes}
+			{...listeners}
+			style={style}
+		>
+			{member.name}
+		</div>
+	);
+};

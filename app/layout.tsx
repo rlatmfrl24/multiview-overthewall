@@ -22,10 +22,7 @@ export default function RootLayout({
 			<body
 				className={`${notoSansKR.variable} antialiased flex flex-col min-h-screen font-noto-sans-kr`}
 			>
-				<header
-					className="flex items-center justify-between h-16 bo
-				rder-b border-gray-200"
-				>
+				<header className="flex items-center justify-between h-16 border-b border-gray-200">
 					<h1 className="text-4xl font-extrabold container mx-auto">
 						오버더월 멀티뷰 생성기
 					</h1>
