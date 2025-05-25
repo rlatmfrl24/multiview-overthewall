@@ -35,10 +35,12 @@ export default function Home() {
 		const selectedMemberObjects = members.filter((member) =>
 			selectedMembers.includes(member.name),
 		);
-		const streamCodes = selectedMemberObjects.map((member) => {
-			return member.chzzkUrl.replace("https://chzzk.naver.com/", "");
+		const sortedStreamCodes = selectedMembers.map((memberName) => {
+			const member = selectedMemberObjects.find((m) => m.name === memberName);
+			return member?.chzzkUrl.replace("https://chzzk.naver.com/", "");
 		});
-		window.open(`https://mul.live/${streamCodes.join("/")}`, "_blank");
+
+		window.open(`https://mul.live/${sortedStreamCodes.join("/")}`, "_blank");
 	};
 
 	return (
