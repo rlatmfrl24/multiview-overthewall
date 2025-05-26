@@ -17,6 +17,7 @@ export function MemberToggle({
 	onToggle,
 }: MemberToggleProps) {
 	const [isLive, setIsLive] = useState(false);
+	const checkInterval = 3000000;
 
 	useEffect(() => {
 		const checkLiveStatus = async () => {
@@ -34,7 +35,7 @@ export function MemberToggle({
 		};
 
 		checkLiveStatus();
-		const interval = setInterval(checkLiveStatus, 30000); // 30초마다 상태 확인
+		const interval = setInterval(checkLiveStatus, checkInterval);
 
 		return () => clearInterval(interval);
 	}, [member.chzzkUrl, member.name]);
