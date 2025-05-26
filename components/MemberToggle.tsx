@@ -17,7 +17,7 @@ export function MemberToggle({
 	onToggle,
 }: MemberToggleProps) {
 	const [isLive, setIsLive] = useState(false);
-	const checkInterval = 3000000;
+	const checkInterval = 30000;
 
 	useEffect(() => {
 		const checkLiveStatus = async () => {
