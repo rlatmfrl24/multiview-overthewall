@@ -2,10 +2,16 @@
 
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
+import {
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Button } from "@/components/ui/button";
 
 export default function ThemeToggle() {
 	const [mounted, setMounted] = useState(false);
-	const [isOpen, setIsOpen] = useState(false);
 	const { theme, setTheme } = useTheme();
 
 	useEffect(() => {
@@ -85,59 +91,23 @@ export default function ThemeToggle() {
 	const currentTheme = themes.find((t) => t.value === theme) || themes[2];
 
 	return (
-		<div className="relative">
-			<button
-				type="button"
-				onClick={() => setIsOpen(!isOpen)}
-				className="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
-				aria-label="테마 선택"
-			>
-				<span className="flex items-center space-x-2">
-					{currentTheme.icon}
-					<span className="hidden sm:inline">{currentTheme.label}</span>
-				</span>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					fill="none"
-					viewBox="0 0 24 24"
-					strokeWidth={1.5}
-					stroke="currentColor"
-					className="w-4 h-4"
-					aria-hidden="true"
-				>
-					<path
-						strokeLinecap="round"
-						strokeLinejoin="round"
-						d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-					/>
-				</svg>
-			</button>
-
-			{isOpen && (
-				<div className="absolute right-0 mt-2 w-48 rounded-lg bg-white dark:bg-gray-800 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
-					<div className="py-1" role="menu" aria-orientation="vertical">
-						{themes.map((themeOption) => (
-							<button
-								key={themeOption.value}
-								type="button"
-								onClick={() => {
-									setTheme(themeOption.value);
-									setIsOpen(false);
-								}}
-								className={`flex items-center space-x-2 w-full px-4 py-2 text-sm ${
-									theme === themeOption.value
-										? "bg-gray-100 dark:bg-gray-700"
-										: "hover:bg-gray-50 dark:hover:bg-gray-700"
-								}`}
-								role="menuitem"
-							>
-								{themeOption.icon}
-								<span>{themeOption.label}</span>
-							</button>
-						))}
-					</div>
-				</div>
-			)}
-		</div>
+		<DropdownMenu>
+			<DropdownMenuTrigger asChild>
+				<Button variant="outline">{currentTheme.icon}</Button>
+			</DropdownMenuTrigger>
+			<DropdownMenuContent>
+				{themes.map((themeOption) => (
+					<DropdownMenuItem
+						key={themeOption.value}
+						onClick={() => {
+							setTheme(themeOption.value);
+						}}
+					>
+						{themeOption.icon}
+						<span>{themeOption.label}</span>
+					</DropdownMenuItem>
+				))}
+			</DropdownMenuContent>
+		</DropdownMenu>
 	);
 }
