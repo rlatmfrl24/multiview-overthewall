@@ -48,6 +48,8 @@ export default function Home() {
 			<p className="text-sm text-gray-500">
 				멤버를 선택한 후, &quot;멀티뷰 생성&quot; 버튼을 클릭하면 mul.live
 				링크로 멀티뷰 링크가 생성됩니다.
+				<br />
+				현재 방송중인 멤버의 버튼만 활성화됩니다.
 			</p>
 			<MemberList
 				title="Stardays"
