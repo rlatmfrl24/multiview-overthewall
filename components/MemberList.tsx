@@ -6,6 +6,7 @@ interface MemberListProps {
 	members: MemberType[];
 	selectedMembers: string[];
 	onToggleMember: (memberName: string) => void;
+	isLiveOnly: boolean;
 }
 
 export function MemberList({
@@ -13,6 +14,7 @@ export function MemberList({
 	members,
 	selectedMembers,
 	onToggleMember,
+	isLiveOnly,
 }: MemberListProps) {
 	return (
 		<>
@@ -24,6 +26,7 @@ export function MemberList({
 						member={member}
 						isSelected={selectedMembers.includes(member.name)}
 						onToggle={onToggleMember}
+						isLiveOnly={isLiveOnly}
 					/>
 				))}
 			</div>
