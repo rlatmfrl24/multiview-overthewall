@@ -45,6 +45,11 @@ export function SelectedMembersList({
 			<p className="text-sm text-gray-500">
 				멤버의 이름을 Drag & Drop 하여 순서를 바꿀 수 있습니다.
 			</p>
+			{selectedMembers.length > 6 && (
+				<p className="text-sm text-red-500">
+					6개 이상의 멀티뷰를 생성할 시, 컴퓨팅 환경에 지장을 줄 수 있습니다.
+				</p>
+			)}
 			<DndContext sensors={sensors} onDragOver={onDragOver}>
 				<SortableContext
 					items={selectedMembers}
