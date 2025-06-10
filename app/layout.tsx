@@ -3,6 +3,7 @@ import { Noto_Sans_KR } from "next/font/google";
 import "./globals.css";
 import ThemeToggle from "./components/ThemeToggle";
 import { Providers } from "./providers";
+import { Analytics } from "@vercel/analytics/next";
 
 const notoSansKR = Noto_Sans_KR({
 	variable: "--font-noto-sans-kr",
@@ -43,6 +44,7 @@ export default function RootLayout({
 						</p>
 					</footer>
 				</Providers>
+				<Analytics />
 			</body>
 		</html>
 	);
