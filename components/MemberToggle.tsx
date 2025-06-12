@@ -28,7 +28,7 @@ export function MemberToggle({
 			}
 
 			const liveStatus = await getChzzkLiveStatus(channelId);
-			setIsLive(liveStatus.content?.status === "LIVE");
+			setIsLive(liveStatus.content?.status === "OPEN");
 		};
 		if (isLiveOnly) {
 			fetchLiveStatus();
