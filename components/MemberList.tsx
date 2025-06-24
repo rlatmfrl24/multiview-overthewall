@@ -1,15 +1,16 @@
 import type { MemberType } from "@/lib/constants";
 import { MemberToggle } from "./MemberToggle";
+import { memo } from "react";
 
 interface MemberListProps {
 	title: string;
-	members: MemberType[];
+	members: readonly MemberType[];
 	selectedMembers: string[];
 	onToggleMember: (memberName: string) => void;
 	isLiveOnly: boolean;
 }
 
-export function MemberList({
+export const MemberList = memo(function MemberList({
 	title,
 	members,
 	selectedMembers,
@@ -17,9 +18,9 @@ export function MemberList({
 	isLiveOnly,
 }: MemberListProps) {
 	return (
-		<>
-			<h2 className="text-xl font-bold">{title}</h2>
-			<div className="flex gap-2">
+		<section>
+			<h2 className="text-xl font-bold mb-2">{title}</h2>
+			<div className="flex gap-2 flex-wrap">
 				{members.map((member) => (
 					<MemberToggle
 						key={member.name}
@@ -30,6 +31,6 @@ export function MemberList({
 					/>
 				))}
 			</div>
-		</>
+		</section>
 	);
-}
+});
