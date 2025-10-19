@@ -11,16 +11,16 @@ export interface MemberType {
 }
 
 export const members: readonly MemberType[] = [
-  {
-    name: "반님",
-    image:
-      "https://i.namu.wiki/i/4FgzJK9VvOsOwH8ehQmVeYzfuwMon6ytg_ZixESaXsdm_6Z6Ir-iuROnDV7nDaLuxfu9tuK2r3UEUEEw35K7d_WbCTeK2WFn686CM_SvHAngpBZdOZXqyu8C9ApyRiSZVaPhL77eUo9pyPvebHM3Tg.webp",
-    xUrl: "https://x.com/Van_Nim_",
-    chzzkUrl: "https://chzzk.naver.com/3a2d2f4e9132d822423f6aa879e598c5",
-    youtubeUrl: "https://www.youtube.com/@%EB%B0%98%EB%8B%98",
-    group: "Stardays",
-    primaryColor: "#3b3a4c",
-  },
+  // {
+  //   name: "반님",
+  //   image:
+  //     "https://i.namu.wiki/i/4FgzJK9VvOsOwH8ehQmVeYzfuwMon6ytg_ZixESaXsdm_6Z6Ir-iuROnDV7nDaLuxfu9tuK2r3UEUEEw35K7d_WbCTeK2WFn686CM_SvHAngpBZdOZXqyu8C9ApyRiSZVaPhL77eUo9pyPvebHM3Tg.webp",
+  //   xUrl: "https://x.com/Van_Nim_",
+  //   chzzkUrl: "https://chzzk.naver.com/3a2d2f4e9132d822423f6aa879e598c5",
+  //   youtubeUrl: "https://www.youtube.com/@%EB%B0%98%EB%8B%98",
+  //   group: "Stardays",
+  //   primaryColor: "#3b3a4c",
+  // },
   {
     name: "쿠레나이 나츠키",
     image:
