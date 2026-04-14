@@ -101,16 +101,16 @@ export const members: readonly MemberType[] = [
     group: "Hi-Blueming",
     primaryColor: "#6da7c5",
   },
-  {
-    name: "오토노 소리",
-    image:
-      "https://i.namu.wiki/i/eCGXQW1SaecxGtS4RbxqjBSK0lbbFA30y4se7O8nZlatF0coBDwgcDh5m1aWSRi26s5VF5yoQ56Uf4MC0MsQPmDJyO3LRGN-N5Od8LrGSKe3G8LWudMANeaZNg-wq2WT5ohOWB9d-lEsSe3RbIxLcQ.webp",
-    xUrl: "https://x.com/otw_sori",
-    chzzkUrl: "https://chzzk.naver.com/2e5c0e7ce8321194127e4d79c83c36d4",
-    youtubeUrl: "https://www.youtube.com/@otw_Sori",
-    group: "Hi-Blueming",
-    primaryColor: "#859753",
-  },
+  // {
+  //   name: "오토노 소리",
+  //   image:
+  //     "https://i.namu.wiki/i/eCGXQW1SaecxGtS4RbxqjBSK0lbbFA30y4se7O8nZlatF0coBDwgcDh5m1aWSRi26s5VF5yoQ56Uf4MC0MsQPmDJyO3LRGN-N5Od8LrGSKe3G8LWudMANeaZNg-wq2WT5ohOWB9d-lEsSe3RbIxLcQ.webp",
+  //   xUrl: "https://x.com/otw_sori",
+  //   chzzkUrl: "https://chzzk.naver.com/2e5c0e7ce8321194127e4d79c83c36d4",
+  //   youtubeUrl: "https://www.youtube.com/@otw_Sori",
+  //   group: "Hi-Blueming",
+  //   primaryColor: "#859753",
+  // },
 ];
 
 // 그룹별 멤버 조회 유틸리티
